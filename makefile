@@ -9,7 +9,8 @@ runcl:
 
 .PHONY: build
 build:
-	go build cmd/urlShortener/main.go
+	go build cmd/lesson/chatcli/main.go
+	go build cmd/lesson/chatsrv/main.go
 
 
 .PHONY: lint
