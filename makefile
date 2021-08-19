@@ -1,6 +1,11 @@
-.PHONY: run
-run:
-	go run cmd/urlShortener/main.go
+.PHONY: runsrv
+runsrv:
+	go run cmd/lesson/chatsrv/main.go
+
+.PHONY: runcl
+runcl:
+	go run cmd/lesson/chatcli/main.go
+
 
 .PHONY: build
 build:
