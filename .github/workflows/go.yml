@@ -22,7 +22,7 @@ jobs:
         uses: golangci/golangci-lint-action@v2
 
       - name: Test
-        run: make test.yaml
+        run: make test
 
       - name: Build
         run: make build
