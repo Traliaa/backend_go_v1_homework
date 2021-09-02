@@ -1,10 +1,10 @@
 .PHONY: run
 run:
-	go run cmd/urlShortener/main.go
+	go run cmd/lesson4/main.go
 
 .PHONY: build
 build:
-	go build cmd/urlShortener/main.go
+	go build cmd/lesson4/main.go
 
 
 .PHONY: lint
