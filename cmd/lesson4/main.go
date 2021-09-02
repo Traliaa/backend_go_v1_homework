@@ -42,7 +42,12 @@ func main() {
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
-	go srv.ListenAndServe()
+	go func() {
+		err := srv.ListenAndServe()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 	dirToServe := http.Dir(uploadHandler.UploadDir)
 
 	fs := &http.Server{
@@ -51,7 +56,10 @@ func main() {
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
-	fs.ListenAndServe()
+	err := fs.ListenAndServe()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
