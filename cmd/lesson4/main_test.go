@@ -59,7 +59,10 @@ func TestUploadHandler(t *testing.T) {
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
 	part, _ := writer.CreateFormFile("file", filepath.Base(file.Name()))
-	io.Copy(part, file)
+	_, err := io.Copy(part, file)
+	if err != nil {
+		t.Error(err)
+	}
 	writer.Close()
 
 	// опять создаем запрос, теперь уже на /upload эндпоинт

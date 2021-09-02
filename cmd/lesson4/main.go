@@ -135,7 +135,7 @@ func (h *ListHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			}
 			for _, file := range files {
 				if strings.Contains(file.Name(), extension) {
-					fmt.Fprintf(w, file.Name())
+					fmt.Fprint(w, file.Name())
 				}
 			}
 		} else {
